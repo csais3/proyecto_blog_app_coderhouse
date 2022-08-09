@@ -1,0 +1,13 @@
+{% extends 'blog_app/base.html'%}
+
+{% block title %} Crear cuenta {% endblock title %}
+
+{% block content %}
+<a href="{% url 'blog_crud:panel-login' %}">Regresar a pagina de login</a>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input name="" id="" class="btn btn-primary" type="submit" value="Crear Cuenta">
+</form>
+{% endblock content %}

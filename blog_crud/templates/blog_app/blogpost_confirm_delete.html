@@ -1,0 +1,19 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %} Eliminar Post {% endblock title %}
+
+{% block content %} 
+
+<main class="flex-shrink-0">
+    <div class="container">
+        <a type="button" href = "{% url 'blog_crud:panel-page' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Regresar al panel</a>
+        <form method="post">{% csrf_token %}
+            <p></p>
+            <p>¿Estas seguro que deseas eliminar "{{ post }}"?</p>
+            {{ form }}
+            <input type="submit" value="Confirmar">
+        </form>
+    </div>
+</main>
+
+{% endblock content %}

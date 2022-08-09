@@ -1,0 +1,8 @@
+{% extends 'blog_app/base.html'%}
+
+{% block title %} Logout {% endblock title %}
+
+{% block content %}
+<h1>Logged out from Panel</h1>
+<a href="{% url 'blog_app:index' %}">Volver al blog</a>
+{% endblock content %}

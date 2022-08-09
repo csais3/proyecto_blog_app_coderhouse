@@ -1,0 +1,8 @@
+{% extends 'blog_app/base.html'%}
+
+{% block title %} No Auth {% endblock title %}
+
+{% block content %}
+<h1>Es necesario hacer login para acceder al panel de administración</h1>
+<a href="{% url 'blog_app:panel-login' %}">Volver al blog</a>
+{% endblock content %}

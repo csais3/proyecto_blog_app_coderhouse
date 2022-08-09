@@ -1,0 +1,23 @@
+{% extends "blog_app/base.html" %}
+
+{% block content %}
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">{{post.title}}</h1>
+       
+      </div>
+    </div>
+  </section>
+  <main class="flex-shrink-0">
+    <div class="container">
+      <div style="text-align:center;">
+        <img height="225" src="{{ object.image.url }}" /> 
+      </div>
+      <div style="padding-top: 2em;">
+       {{post.text | safe }}
+      </div>
+    </div>
+  </main>
+
+{% endblock content %}

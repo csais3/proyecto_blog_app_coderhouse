@@ -1,0 +1,23 @@
+{% extends "blog_app/base.html" %}
+
+{% block title %} {% endblock title %}
+
+{% block content %} 
+
+
+<main class="flex-shrink-0">
+    <div class="container">
+        <a type="button" href = "{% url 'blog_crud:panel-page' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Regresar al Panel</a>
+        <form method="post" enctype="multipart/form-data" style="margin-top: 1em;">{% csrf_token %}
+        {{ form.as_p }}
+        {% if request.resolver_match.url_name == "post-update" %}
+            <input type="submit" value="Actualizar">
+        {% else %}
+            <input type="submit" value="Crear">
+        {% endif %}
+        </form>
+         
+    </div>  
+</main>
+
+{% endblock content %}

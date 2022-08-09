@@ -1,0 +1,17 @@
+{% extends 'blog_app/base.html'%}
+
+{% block title %} Detalles de usuario {% endblock title %}
+
+{% block content %}
+<a name="" id="" class="btn btn-primary" href="{% url 'blog_crud:panel-page' %}" role="button">Regresar a lista de posts</a>
+<a name="" id="" class="btn btn-primary" href="{% url 'blog_crud:user-update' user.id %}" role="button">Actualizar el perfil</a>
+<ul>
+    <li>Name: {{object.user.first_name}}<li>
+    <li>Last Name: {{object.user.last_name}}<li>
+    <li>email: {{object.user.email}} </li>
+    <li>username: {{object.user.username}}</li>
+</ul>
+
+<img height="128" src="{{ object.avatar.url }}" />
+
+{% endblock content %}

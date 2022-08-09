@@ -1,0 +1,48 @@
+{% extends 'blog_app/base.html' %}
+
+{% load static %}
+
+{% block title %} Panel {% endblock title %}
+
+{% block content %}
+<main class="flex-shrink-0">
+    <div class="container" style="margin-top: 1em;">
+      
+     <a type="button" href="{% url 'blog_crud:post-create' %}" class="btn btn-sm btn-outline-primary">New Post</a> 
+     <a type="button" href="{% url 'blog_crud:panel-logout'%}" class="btn btn-sm btn-outline-danger">Logout</a> 
+     <a type="button" href="{% url 'blog_crud:user-detail' user.id %}" class="btn btn-sm btn-outline-primary">Perfil</a>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">publisher</th>
+      <th scope="col">Fecha Publicada</th>
+      <th scope="col">Fecha Creada</th>
+      <th scope="col">Fecha Actualizada</th>
+      <th scope="col">actions</th>
+    </tr>
+  </thead>
+        <tbody>
+          {%for post in posts %}
+            <tr>
+            <th scope="row">{{post.id}}</th>
+            <td>{{post.title}}</td>
+            <td>{{post.author}}</td>
+            <td>{{post.date_published}}</td>
+            <td>{{post.date_created}}</td>
+            <td>{{post.date_updated}}</td>
+            <td>
+              <a type="button" href="{% url 'blog_crud:post-update' post.id %}" class="btn btn-sm btn-outline-warning">Editar</a>
+              <a type="button" href="{% url 'blog_crud:post-delete' post.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+            </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+        
+    </div>
+  </main>
+
+{% endblock content %}
