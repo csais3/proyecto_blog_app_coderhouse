@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Publisher(models.Model):
+    # Modelo para el publicista, vista y edicion de perfil de usuario.
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     avatar = models.ImageField(upload_to="avatars", null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -12,8 +13,10 @@ class Publisher(models.Model):
     def __str__(self):
         return self.user.username
 
+
+
 class BlogPost(models.Model):
-    # Model to make a post.
+    # Modelo para hacer los posts.
 
     title = models.CharField(max_length=30)
     text = models.TextField()
